@@ -70,11 +70,13 @@
           <thead>
 
             <tr>
-              <th>#</th>
-              <th>Task Name</th>
-              <th>Due Date</th>
-              <th>Status</th>
-              <th>Priority</th>
+                <th>#</th>
+                <th>Task Name</th>
+                <th>Description</th>
+                <th>Due Date</th>
+                <th>Status</th>
+                <th>Priority</th>
+                <th>Action</th>
             </tr>
 
           </thead>
@@ -90,11 +92,18 @@
             ?>
 
             <tr>
-              <td><?php echo $row['task_id']; ?></td>
-              <td><?php echo $row['task_name']; ?></td>
-              <td><?php echo $row['due_date']; ?></td>
-              <td><?php echo $row['status']; ?></td>
-              <td><?php echo $row['priority']; ?></td>
+                <td><?php echo $row['task_id']; ?></td>
+                <td><?php echo $row['task_name']; ?></td>
+                <td><?php echo $row['description']; ?></td>
+                <td><?php echo $row['due_date']; ?></td>
+                <td><?php echo $row['status']; ?></td>
+                <td><?php echo $row['priority']; ?></td>
+                <td>
+                    <a href="editTask.php?task_id=<?php echo $row['task_id']; ?>" class="btn btn-primary">Edit</a>
+
+                    <a href="deleteTask.php?task_id=<?php echo $row['task_id']; ?>" class="btn btn-danger" 
+                    onclick="return confirm('Are you sure you want to delete this task?')">Delete</a>
+                </td>
             </tr>
 
             <?php
